@@ -1,0 +1,10 @@
+{% comment %} passing conent from django backneds to any html file {% endcomment %}
+
+{% autoescape off %}
+
+Hi{{user.username}}
+PLease Click THis Link below to verify your account
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

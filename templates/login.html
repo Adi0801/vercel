@@ -1,0 +1,49 @@
+{%extends 'base.html' %}
+{%block title %}Login{% endblock title%}
+
+{% block content%}
+
+{%for message in messages %} 
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          {% comment %} <span aria-hidden="Close"></span> {% endcomment %}
+        </button>
+      </div>
+      {% endfor %}
+
+{% comment %} <h3>Welcome to <strong>ShopifyIndia</strong></h3>
+<h1>Discover Limitless Possibilities at Shopify India</h1>
+<h2>Your journey towards ecommerce excellence begins here.</h2> {% endcomment %}
+
+<div class="card bg-Light p-5 ">
+
+<h3 class="text-dark">Login</h3>
+
+<form action="/auth/login/" method="post">
+  {% csrf_token %}
+  <br>
+  <label for="email">Email</label>
+  <div class="form-group">
+  <input type="email" class="form-control p-1" id="email" name="email" required>
+  </div>
+  
+  <label for="pass1">Password</label>
+  <div class="form-group">
+    <input type="password" class="form-control p-1" id="pass1" name="pass1" required>
+  </div>
+
+  
+
+  <br>
+  <button type="submit" class="btn btn-dark">SignIn</button>
+  <br>
+  New User?<a href="/auth/signup/">Signup</a>
+  <br>
+
+
+  </form>
+  </div>
+
+
+{% endblock content%}
